@@ -8,28 +8,20 @@ class Model {
 
   get(_id) {
     if(_id) return schema.findOne({_id});
-    else return schema.find({_id})
-    // let response = id ? this.database.filter((record) => record.id === id) : this.database;
-    // return Promise.resolve(response);
+    else return schema.find({})
   }
 
   create(record) {
-    return this.schema.create(record);
-    // record.id = uuid();
-    // this.database.push(record);
-    // return Promise.resolve(record);
-  }
+    return this.schema.create(record)
+    // return newRecord.save()
+   }
 
   update(_id, record) {
     return schema.findByIdAndUpdate(_id, record, {new: true});
-    // this.database = this.database.map((item) => (item.id === id) ? record : item);
-    // return Promise.resolve(record);
   }
 
   delete(_id) {
     return schema.findByIdAndDelete(_id);
-    // this.database = this.database.filter((record) => record.id !== id);
-    // return Promise.resolve();
   }
 
 }

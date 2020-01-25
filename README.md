@@ -8,7 +8,7 @@
 - [ci/cd](https://github.com/401-advanced-javascript-qusaiAlhanaktah/lab-05/actions)
 
 ### Setup
-npm i jest eslint
+npm i jest eslint mongoose @code-fellows/supergoose 
 
 #### How to initialize/run your application (where applicable)
 
@@ -24,3 +24,4 @@ npm i jest eslint
      - evey test solved and another time i will cover more cases.
 #### UML
 Link to an image of the UML for your application and response to events
+![White-board](assets/IMG_20200125_170040.jpg)
