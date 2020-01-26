@@ -7,8 +7,8 @@ class Model {
   }
 
   get(_id) {
-    if(_id) return schema.findOne({_id});
-    else return schema.find({})
+    if(_id) return this.schema.findOne({_id});
+    else return this.schema.find({})
   }
 
   create(record) {
@@ -17,13 +17,12 @@ class Model {
    }
 
   update(_id, record) {
-    return schema.findByIdAndUpdate(_id, record, {new: true});
+    return this.schema.findByIdAndUpdate(_id, record, {new: true});
   }
 
   delete(_id) {
-    return schema.findByIdAndDelete(_id);
+    return this.schema.findByIdAndDelete(_id);
   }
-
 }
 
 module.exports = Model;

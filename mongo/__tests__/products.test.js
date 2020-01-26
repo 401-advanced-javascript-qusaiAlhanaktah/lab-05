@@ -10,7 +10,7 @@ describe('Products Model', () => {
         let obj = { price: 4, quantity_in_stock: 500 }
         return product.create(obj)
             .then(record => {
-                console.log(record)
+                // console.log(record)
                 Object.keys(obj).forEach(key => {
                     expect(record[key]).toEqual(obj[key]);
                 });
@@ -23,9 +23,9 @@ describe('Products Model', () => {
             .then(record => {
                 return product.get(record._id)
                     .then(prod => {
-                        console.log(prod)
+                        // console.log(prod)
                         Object.keys(obj).forEach(key => {
-                            expect(prod[0][key]).toEqual(obj[key]);
+                            expect(prod[key]).toEqual(obj[key]);
                         });
                     });
             });
@@ -38,12 +38,12 @@ describe('Products Model', () => {
                 record.price = 10;
                 record.quantity_in_stock = 1000;
                 return product.update(record._id, record)
-                    .then(category => {
-                        return product.get(category._id)
-                            .then(category => {
-                                console.log(category)
+                    .then(newPorduct => {
+                        return product.get(newPorduct._id)
+                            .then(data => {
+                                // console.log(category)
                                 Object.keys(obj).forEach(key => {
-                                    expect(category[0][key]).toEqual(obj[key]);
+                                    expect(data[key]).toEqual(newPorduct[key]);
                                 });
                             })
                     });
@@ -58,9 +58,12 @@ describe('Products Model', () => {
                     .then(prod => {
                         return product.delete(prod._id)
                             .then(record => {
-                                console.log(record)
-                                expect(record).toEqual(undefined);
+                                return product.get(record._id)
+                                .then(prod => {
+                                // console.log(record)
+                                expect(prod).toBe(null);
                             })
+                        })
                     });
             });
     });
