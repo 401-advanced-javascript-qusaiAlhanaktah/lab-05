@@ -11,7 +11,7 @@ class Model {
 
   create(record) {
     return this.schema.create(record);
-   }
+  }
 
   update(_id, record) {
     return this.schema.findByIdAndUpdate(_id, record, {new: true});
